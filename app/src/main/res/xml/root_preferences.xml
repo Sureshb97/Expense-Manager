@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:layout="@layout/fragment_about"
+        android:selectable="false"/>
+
+    <PreferenceCategory android:title="Data">
+
+        <Preference android:title="Clear data"
+            android:key="clear_data"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="About">
+
+        <Preference android:title="Version"
+                android:summary="v1.0.0"
+                android:key="version"/>
+
+        <Preference android:title="Github"
+                android:key="github"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

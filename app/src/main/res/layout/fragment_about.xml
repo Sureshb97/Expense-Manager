@@ -1,0 +1,18 @@
+<RelativeLayout android:layout_height="250dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rl"
+        android:background="#1B808080"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/image"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_launcher" />
+
+</RelativeLayout>
+
+
+
