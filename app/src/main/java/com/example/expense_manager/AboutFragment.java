@@ -67,7 +67,7 @@ public class AboutFragment extends PreferenceFragmentCompat {
             public boolean onPreferenceClick(Preference preference) {
 
                 Intent intent=new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://github.com/SureshBahavathi/Expense-Manager"));
+                intent.setData(Uri.parse("https://github.com/Sureshb97/Expense-Manager"));
                 getActivity().startActivity(intent);
                 return false;
             }
