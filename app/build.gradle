@@ -14,10 +14,28 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    signingConfigs{
+        release{
+            storeFile file("release-key.jks")
+            storePassword "suresh4530"
+            keyAlias "key0"
+            keyPassword "suresh4530"
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+
+        debug{
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
         }
     }
 }

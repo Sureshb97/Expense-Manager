@@ -11,7 +11,10 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-dontwarn com.github.mikephil.**
+-keep public class com.github.mikephil.** {
+     public protected *;
+}
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
