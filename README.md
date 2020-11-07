@@ -1,4 +1,4 @@
-# RD Expense Manager
+# Expense Manager
 **Basic app to manage daily expenses for Android**
 
 ## Features
