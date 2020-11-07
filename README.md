@@ -12,8 +12,8 @@
 Download apk file here [Expense Manager v1.0](https://github.com/Sureshb97/Expense-Manager/releases/download/v1.0.0/ExpenseManagerv1.0.apk)
 
 ## Screenshots
-
-[url=https://postimg.cc/phhhy8NF][img]https://i.postimg.cc/phhhy8NF/Screenshot-1.png[/img][/url] [url=https://postimg.cc/VSNbQpD4][img]https://i.postimg.cc/VSNbQpD4/Screenshot-2.png[/img][/url] [url=https://postimg.cc/bGFSzg5P][img]https://i.postimg.cc/bGFSzg5P/Screenshot-3.png[/img][/url] [url=https://postimg.cc/HcqJMxHP][img]https://i.postimg.cc/HcqJMxHP/Screenshot-4.png[/img][/url]
+| <img src="Screenshots/Screenshot_1.png" width="200"/>| <img src="Screenshots/Screenshot_2.png" width="200"/>| <img src="Screenshots/Screenshot_3.png" width="200"/>| <img src="Screenshots/Screenshot_4.png" width="200"/>|
+|:---:|:---:|:---:|:---:|
 
 ### License
 
