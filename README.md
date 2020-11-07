@@ -13,6 +13,7 @@ Download apk file here [Expense Manager v1.0](https://github.com/Sureshb97/Expen
 
 ## Screenshots
 | <img src="Screenshots/Screenshot_1.png" width="200"/>| <img src="Screenshots/Screenshot_2.png" width="200"/>| <img src="Screenshots/Screenshot_3.png" width="200"/>| <img src="Screenshots/Screenshot_4.png" width="200"/>|
+|:---:|:---:|:---:|:---:|
 
 ### License
 
