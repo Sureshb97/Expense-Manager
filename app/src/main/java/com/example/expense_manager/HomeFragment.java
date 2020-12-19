@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -43,14 +47,22 @@ public class HomeFragment extends Fragment {
     
     public HomeFragment(Context context) {
         this.context = context;
+
     }
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view=inflater.inflate(R.layout.fragment_home, container, false);
+
+
         return  view;
     }
-    
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -59,6 +71,7 @@ public class HomeFragment extends Fragment {
         refresh=view.findViewById(R.id.refresh);
         chart=view.findViewById(R.id.pie_chart);
         date=view.findViewById(R.id.date);
+
         food_value=view.findViewById(R.id.food_value);
         entertainment_value=view.findViewById(R.id.entertain_value);
         clothing_value=view.findViewById(R.id.clothing_value);
@@ -71,7 +84,6 @@ public class HomeFragment extends Fragment {
         field4 =view.findViewById(R.id.field4);
         field5 =view.findViewById(R.id.field5);
         field6 =view.findViewById(R.id.field6);
-        
         selectedDate=String.valueOf(new Date(System.currentTimeMillis()));
         date.setText(selectedDate);
         get(Date.valueOf(selectedDate));
@@ -152,7 +164,7 @@ public class HomeFragment extends Fragment {
         chart.setHighlightPerTapEnabled(true);
         chart.getDescription().setEnabled(false);
         chart.animateY(1000, Easing.EaseInOutCubic);
-        
+
         chart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
@@ -161,56 +173,57 @@ public class HomeFragment extends Fragment {
                     switch (name) {
                         case "Food":
                             if (active == null) {
-                                field1.setBackground(ContextCompat.getDrawable(context, R.drawable.food_border));
+
+                                field1.setBackground(getActivity().getDrawable(R.drawable.food_border));
                                 active = field1;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field1.setBackground(ContextCompat.getDrawable(context, R.drawable.food_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field1.setBackground(getActivity().getDrawable(R.drawable.food_border));
                             active = field1;
                             break;
                         case "Entertainment":
                             if (active == null) {
-                                field2.setBackground(ContextCompat.getDrawable(context, R.drawable.entertainment_border));
+                                field2.setBackground(getActivity().getDrawable(R.drawable.entertainment_border));
                                 active = field2;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field2.setBackground(ContextCompat.getDrawable(context, R.drawable.entertainment_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field2.setBackground(getActivity().getDrawable(R.drawable.entertainment_border));
                             active = field2;
                             break;
                         case "Housing":
                             if (active == null) {
-                                field3.setBackground(ContextCompat.getDrawable(context, R.drawable.housing_border));
+                                field3.setBackground(getActivity().getDrawable(R.drawable.housing_border));
                                 active = field3;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field3.setBackground(ContextCompat.getDrawable(context, R.drawable.housing_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field3.setBackground(getActivity().getDrawable(R.drawable.housing_border));
                             active = field3;
                             break;
                         case "Clothing":
                             if (active == null) {
-                                field4.setBackground(ContextCompat.getDrawable(context, R.drawable.clothing_border));
+                                field4.setBackground(getActivity().getDrawable(R.drawable.clothing_border));
                                 active = field4;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field4.setBackground(ContextCompat.getDrawable(context, R.drawable.clothing_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field4.setBackground(getActivity().getDrawable(R.drawable.clothing_border));
                             active = field4;
                             break;
                         case "Transportation":
                             if (active == null) {
-                                field5.setBackground(ContextCompat.getDrawable(context, R.drawable.transportation_border));
+                                field5.setBackground(getActivity().getDrawable(R.drawable.transportation_border));
                                 active = field5;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field5.setBackground(ContextCompat.getDrawable(context, R.drawable.transportation_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field5.setBackground(getActivity().getDrawable(R.drawable.transportation_border));
                             active = field5;
                             break;
                         case "Others":
                             if (active == null) {
-                                field6.setBackground(ContextCompat.getDrawable(context, R.drawable.others_border));
+                                field6.setBackground(getActivity().getDrawable(R.drawable.others_border));
                                 active = field6;
                             }
-                            active.setBackgroundColor(getResources().getColor(R.color.blank, getActivity().getTheme()));
-                            field6.setBackground(ContextCompat.getDrawable(context, R.drawable.others_border));
+                            active.setBackgroundColor(getActivity().getResources().getColor(R.color.blank, getActivity().getTheme()));
+                            field6.setBackground(getActivity().getDrawable(R.drawable.others_border));
                             active = field6;
                             break;
                     }
@@ -230,6 +243,8 @@ public class HomeFragment extends Fragment {
     
     public void amountDataAssigning(float[] amount)
     {
+
+        Log.d("ddd",String.valueOf(amount[0]));
         food_value.setText("₹ "+String.valueOf((int)amount[0]));
         entertainment_value.setText("₹ "+String.valueOf((int)amount[1]));
         clothing_value.setText("₹ "+String.valueOf((int)amount[2]));

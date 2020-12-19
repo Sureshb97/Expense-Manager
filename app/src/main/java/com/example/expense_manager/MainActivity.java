@@ -24,27 +24,32 @@ public class MainActivity extends AppCompatActivity
         BottomNavigationView bottomNavigationView;
         FrameLayout frameLayout;
         Context context;
-        Fragment active;
-        FragmentManager fragmentManager;
-        Fragment fragment1;
-        Fragment fragment2 ;
-        Fragment fragment3;
+//        Fragment active;
+//        FragmentManager fragmentManager;
+       Fragment fragment;
+//        Fragment fragment1;
+//        Fragment fragment2 ;
+//        Fragment fragment3;
 
         @Override
         protected void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-            fragment1 = new HomeFragment(this);
+            /*fragment1 = new HomeFragment(this);
             fragment2 = new AddFragment(this);
-            fragment3 = new AboutFragment();
-            active=fragment1;
-            fragmentManager = getSupportFragmentManager();
+            fragment3 = new AboutFragment();*/
+            //active=fragment1;
+
             bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottom_navigation);
             frameLayout=(FrameLayout)findViewById(R.id.frame);
-            fragmentManager.beginTransaction().add(R.id.frame, fragment3, "3").hide(fragment3).commit();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                    .replace(R.id.frame,new HomeFragment(context))
+                    .commit();
+            /*ragmentManager.beginTransaction().add(R.id.frame, fragment3, "3").hide(fragment3).commit();
             fragmentManager.beginTransaction().add(R.id.frame, fragment2, "2").hide(fragment2).commit();
-            fragmentManager.beginTransaction().add(R.id.frame,fragment1, "1").commit();
+            fragmentManager.beginTransaction().add(R.id.frame,fragment1, "1").commit();*/
 
             bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -53,22 +58,51 @@ public class MainActivity extends AppCompatActivity
                     switch (item.getItemId())
                     {
                         case R.id.nav_home:
-                            fragmentManager.beginTransaction().hide(active).show(fragment1).commit();
+                            fragment=new HomeFragment(context);
+                            /*fragmentManager.beginTransaction().hide(active).show(fragment1).commit();
                             active = fragment1;
-                            return true;
+                            return true;*/
+                            break;
 
                         case R.id.nav_add:
-                            fragmentManager.beginTransaction().hide(active).show(fragment2).commit();
+                            fragment=new AddFragment(context);
+                           /* fragmentManager.beginTransaction().hide(active).show(fragment2).commit();
                            active = fragment2;
-                            return true;
+                            return true;*/
+                            break;
 
                         case R.id.nav_settings:
-                            fragmentManager.beginTransaction().hide(active).show(fragment3).commit();
+                            fragment=new AboutFragment();
+                            /*fragmentManager.beginTransaction().hide(active).show(fragment3).commit();
                             active = fragment3;
-                            return true;
+                            return true;*/
+                            break;
                     }
-                  return false;
+
+                    FragmentManager fragmentManager1=getSupportFragmentManager();
+
+                    fragmentManager1.beginTransaction()
+                            .replace(R.id.frame,fragment)
+                            .commit();
+
+
+                  return true;
                 }
             });
+
+
         }
+
+    @Override
+    public void onBackPressed() {
+
+        int seletedItemId = bottomNavigationView.getSelectedItemId();
+        if (R.id.nav_home != seletedItemId) {
+           bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
 }
