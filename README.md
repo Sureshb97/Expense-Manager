@@ -9,7 +9,7 @@
 * Date picker is used to see past data
 
 ### APK
-Download apk file here [Expense Manager v1.0](https://github.com/Sureshb97/Expense-Manager/releases/download/v1.0.0/ExpenseManagerv1.0.apk)
+Download apk file here [Expense Manager](https://github.com/Sureshb97/Expense-Manager/releases/download/v1.0.0/ExpenseManagerv1.0.apk)
 
 ## Screenshots
 | <img src="Screenshots/Screenshot_1.png" width="200"/>| <img src="Screenshots/Screenshot_2.png" width="200"/>| <img src="Screenshots/Screenshot_3.png" width="200"/>| <img src="Screenshots/Screenshot_4.png" width="200"/>|
