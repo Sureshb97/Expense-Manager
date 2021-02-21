@@ -14,7 +14,7 @@
     <PreferenceCategory app:title="About">
 
         <Preference android:title="Version"
-                android:summary="v1.0.0"
+                android:summary="v1.0.2"
                 android:key="version"/>
 
         <Preference android:title="Github"

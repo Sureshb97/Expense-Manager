@@ -9,73 +9,77 @@
 
     <ImageView
         android:id="@+id/refresh"
-        android:layout_width="34dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:src="@drawable/ic_baseline_refresh_24"
-        app:layout_constraintBottom_toTopOf="@+id/pie_chart"
-        app:layout_constraintEnd_toEndOf="@+id/pie_chart"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/pie_chart" />
+       app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="36dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/calendar"
-        android:layout_width="34dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:src="@drawable/calendar"
-        app:layout_constraintBottom_toTopOf="@+id/pie_chart"
-        app:layout_constraintEnd_toEndOf="@+id/pie_chart"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/pie_chart"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        android:layout_margin="36dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="15dp"
+        android:text="24/5/2021"
         android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/calendar"
         app:layout_constraintEnd_toStartOf="@+id/calendar"
         app:layout_constraintTop_toTopOf="@+id/calendar" />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pie_chart"
-        android:layout_width="376dp"
-        android:layout_height="381dp"
-        android:layout_marginTop="136dp"
+    <LinearLayout
+        android:id="@+id/chartLinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/refresh"
+        app:layout_constraintVertical_weight="45">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pie_chart"
-        app:layout_constraintVertical_bias="0.238">
+        app:layout_constraintTop_toBottomOf="@+id/chartLinear">
 
         <LinearLayout
             android:id="@+id/line1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -83,9 +87,10 @@
             <LinearLayout
                 android:id="@+id/field1"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:paddingVertical="8dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:orientation="horizontal">
@@ -96,30 +101,29 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Food"
-                    android:textSize="16dp" />
+                    android:text="Food" />
 
 
                 <TextView
                     android:id="@+id/food_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/field2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
+                android:paddingVertical="8dp"
                 android:clickable="true"
                 android:orientation="horizontal">
 
@@ -129,19 +133,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Entertainment"
-                    android:textSize="16dp" />
+                    android:text="Entertainment" />
 
                 <TextView
                     android:id="@+id/entertain_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
             </LinearLayout>
 
         </LinearLayout>
@@ -149,16 +151,17 @@
         <LinearLayout
             android:id="@+id/line2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="2">
 
             <LinearLayout
                 android:id="@+id/field3"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:paddingVertical="8dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:orientation="horizontal">
@@ -169,28 +172,27 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Housing"
-                    android:textSize="16dp" />
+                    android:text="Housing" />
 
                 <TextView
                     android:id="@+id/housing_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/field4"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
+                android:paddingVertical="8dp"
                 android:clickable="true"
                 android:orientation="horizontal">
 
@@ -200,19 +202,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Clothing"
-                    android:textSize="16dp" />
+                    android:text="Clothing" />
 
                 <TextView
                     android:id="@+id/clothing_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
             </LinearLayout>
 
         </LinearLayout>
@@ -220,14 +220,15 @@
         <LinearLayout
             android:id="@+id/line3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="2">
 
             <LinearLayout
                 android:id="@+id/field5"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
+                android:paddingVertical="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
@@ -240,28 +241,27 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Transporatation"
-                    android:textSize="16dp" />
+                    android:text="Transporatation" />
 
                 <TextView
                     android:id="@+id/transportation_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/field6"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
+                android:paddingVertical="8dp"
                 android:clickable="true"
                 android:orientation="horizontal">
 
@@ -271,19 +271,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="15dp"
-                    android:text="Others"
-                    android:textSize="16dp" />
+                    android:text="Others" />
 
                 <TextView
                     android:id="@+id/others_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text=""
-                    android:textSize="16dp" />
+                    android:text="" />
             </LinearLayout>
 
         </LinearLayout>
